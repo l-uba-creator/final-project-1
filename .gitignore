@@ -1,0 +1,15 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Секреты
+.env
+
+# Логи выполнения скриптов
+logs/
+
+# Данные Postgres в Docker (persist только в volume, в репозиторий не нужны)
+
+# Служебные файлы Claude Code
+.claude/

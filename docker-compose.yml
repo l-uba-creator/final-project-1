@@ -1,0 +1,35 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: retail_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-retail}
+      POSTGRES_USER: ${POSTGRES_USER:-retail_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-retail_pass}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+      - ./sql/ddl.sql:/docker-entrypoint-initdb.d/01_ddl.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-retail_user} -d ${POSTGRES_DB:-retail}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: retail_pgadmin
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_CONFIG_SERVER_MODE: "False"
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+
+volumes:
+  pg_data:
