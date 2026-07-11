@@ -76,7 +76,7 @@
 
 ```powershell
 git clone <URL-репозитория>
-cd final-project-1st
+cd final-project-1
 ```
 
 ### 2. Настроить окружение Python
