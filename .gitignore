@@ -1,5 +1,6 @@
 # Python
 .venv/
+venv/
 __pycache__/
 *.pyc
 
@@ -9,7 +10,19 @@ __pycache__/
 # Логи выполнения скриптов
 logs/
 
-# Данные Postgres в Docker (persist только в volume, в репозиторий не нужны)
+# IDE / редакторы
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
 
-# Служебные файлы Claude Code
+# AI-ассистенты / агентские среды
 .claude/
+.cursor/
+.windsurf/
+.aider*
+.github/copilot/
+
+# OS
+.DS_Store
+Thumbs.db

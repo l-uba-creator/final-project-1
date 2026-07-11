@@ -170,3 +170,7 @@ $env:PGBIN = "C:\Program Files\PostgreSQL\16\bin"
 - [`db_schema.jpg`](img/db_schema.jpg) — ER-диаграмма всех 7 таблиц схемы `retail` в DBeaver;
 - [`db_data_sample.jpg`](img/db_data_sample.jpg) — результат запроса
   `SELECT * FROM retail.receipt_items LIMIT 20`, подтверждающий, что данные реально загружены.
+
+## Лицензия
+
+Проект распространяется под лицензией [MIT](LICENSE).
